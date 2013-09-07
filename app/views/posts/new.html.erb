@@ -1,0 +1,12 @@
+<div class="page=header">
+	<h1>New Post</h1>
+</div>
+
+<%= form_for @post do |f| %>
+	<div class="new_post">
+	<%= f.label :author %> <%= f.text_field :author %>
+	<%= f.label :title %> <%= f.text_field :title %>
+	<%= f.label :content %> <%= f.text_area :content %>
+	</div>
+	<%= f.submit "Submit", class: 'btn' %>
+<% end %>

@@ -8,4 +8,10 @@
 	<%= @post.content %>
 </div>
 
-<%= button_to 'Edit', edit_post_path, method: :get, class: 'btn' %>
+<%= button_to 'Edit', edit_post_path(@post.id), method: :get, class: 'btn' %>
+
+<h3 id="comment">Comment</h3>
+<%= form_for [@post, @comment] do |f| %>
+	<%= f.text_area :content %>
+	<%= f.submit 'Submit' %>
+<% end %>

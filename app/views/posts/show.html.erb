@@ -12,6 +12,15 @@
 
 <h3 id="comment">Comment</h3>
 <%= form_for [@post, @comment] do |f| %>
+	<% if @comment.errors.any? %>
+		<h3>Errors:</h3>
+		<ul>
+			<% @comment.errors.full_messages.each do |msg| %>
+				<li><%= msg %></li>	
+			<% end %>
+		</ul>
+	<% end %>
+	
 	<%= f.text_area :content %>
 	<%= f.submit 'Submit' %>
 <% end %>

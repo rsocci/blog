@@ -12,3 +12,25 @@
  *= require_tree .
  */
 @import 'bootstrap';
+
+.page-header, h4 {
+	color: #5a5a5a;
+}
+
+a:hover {
+	text-decoration: none;
+}
+
+tr {
+	height: 50px;
+	font-size: 15px;
+}
+
+textarea {
+	width: 400px;
+	height: 80px;
+}
+
+#time_stamp {
+	font-size: 12px;
+}

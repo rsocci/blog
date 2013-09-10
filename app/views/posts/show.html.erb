@@ -1,19 +1,15 @@
-<div class="page=header">
-	<h1><%= @post.title %></h1>
-	<h5>by <%= @post.author %></h5>
+<div class="page-header">
+	<h1><%= @post.title %> <small>by <%= @post.author %></small></h1>
 </div>
-
 
 <div class="content">
 	<%= @post.content %>
 </div>
 
-<%= button_to 'Edit', edit_post_path(@post.id), method: :get, class: 'btn' %>
-
 <h3 id="comment">Comment</h3>
 <%= form_for [@post, @comment] do |f| %>
 	<% if @comment.errors.any? %>
-		<h3>Errors:</h3>
+		<h4>Errors:</h4>
 		<ul>
 			<% @comment.errors.full_messages.each do |msg| %>
 				<li><%= msg %></li>	
@@ -21,15 +17,16 @@
 		</ul>
 	<% end %>
 	
-	<%= f.text_area :content %>
-	<%= f.submit 'Submit' %>
+	<p><%= f.text_area :content %></p>
+	<p><%= f.submit 'Submit', class: 'btn' %></p>
 <% end %>
 
 <% @comments.each do |c| %>
 	<% if c.post_id == @post.id %>
 		<div class="comment">
-			<h6><%= c.content %></h6>
-			<p>submitted <%= time_ago_in_words(c.created_at) + ' ago' %></p>
+			<h5><%= c.content %></h5>
+			<p id="time_stamp">submitted <%= time_ago_in_words(c.created_at) + ' ago' %></p>
+			<hr>
 		</div>
 	<% end %>
 <% end %>

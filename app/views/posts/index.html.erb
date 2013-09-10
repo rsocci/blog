@@ -9,6 +9,7 @@
 			<td><%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure you want to delete this post?'} %></td>
 		</tr>
 	<% end %>
-</table>
 
+</table>
 <%= button_to "New Post", new_post_path, method: :get, class: 'btn' %>
+<%= paginate @posts %>

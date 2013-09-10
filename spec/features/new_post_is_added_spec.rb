@@ -23,5 +23,6 @@ feature 'new post is added' do
     fill_in 'Content', with: 'Just saying hello'
     fill_in 'Author', with: 'Romina Vargas'
     click_button('Submit')
+    expect(page).to have_content('New post has been added')
   end
 end

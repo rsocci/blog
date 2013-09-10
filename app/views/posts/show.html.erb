@@ -16,12 +16,11 @@
 	<%= f.submit 'Submit' %>
 <% end %>
 
-
 <% @comments.each do |c| %>
 	<% if c.post_id == @post.id %>
 		<div class="comment">
 			<h6><%= c.content %></h6>
-			<p>submitted <%= time_ago_in_words(c.created_at) + ' ago' %>
+			<p>submitted <%= time_ago_in_words(c.created_at) + ' ago' %></p>
 		</div>
 	<% end %>
 <% end %>

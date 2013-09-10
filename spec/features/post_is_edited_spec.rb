@@ -10,6 +10,6 @@ feature 'post is edited' do
     click_button('Edit')
     page.fill_in 'Title', with: 'Welcome'
     click_button('Submit')
-    expect(page).to have_content('Welcome')
+    expect(page).to have_content('Post was updated successfully')
   end
 end

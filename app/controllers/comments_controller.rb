@@ -3,8 +3,9 @@ class CommentsController < ApplicationController
     @post = Post.find(params[:post_id])
     @comment = @post.comments.new(comment_params)
     if @comment.save
-      redirect_to post_path(params[:post_id])
+      redirect_to post_path(params[:post_id]), notice: 'New comment has been added'
     else
+      @comments = Comment.all
       render 'posts/show'
     end
   end

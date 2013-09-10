@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = Comment.where('post_id = ?', params[:id])
+    @comments = @post.comments.where('post_id = ?', params[:id])
     @comment = @post.comments.new
   end
 
@@ -16,7 +16,7 @@ class PostsController < ApplicationController
   def create
     @post = Post.new(post_params)
     if @post.save
-      redirect_to posts_path
+      redirect_to posts_path, notice: 'New post has been added'
     else
       render 'new'
     end
@@ -29,12 +29,18 @@ class PostsController < ApplicationController
   def update
     @post = Post.find(params[:id])
     if @post.update_attributes(post_params)
-      redirect_to posts_path
+      redirect_to posts_path, notice: 'Post was updated successfully'
     else
       render 'edit'
     end
   end
   
+  def destroy
+    @post = Post.find(params[:id])
+    @post.destroy
+    redirect_to posts_path, notice: 'Post was deleted successfully'
+  end
+
   private
 
   def post_params

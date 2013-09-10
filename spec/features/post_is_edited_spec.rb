@@ -12,4 +12,11 @@ feature 'post is edited' do
     click_button('Submit')
     expect(page).to have_content('Post was updated successfully')
   end
+
+  scenario 'user edits post with invalid input' do
+    click_link('Edit')
+    page.fill_in 'Title', with: ''
+    click_button('Submit')
+    expect(page).to have_selector('.field_with_errors')
+  end
 end

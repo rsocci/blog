@@ -13,8 +13,12 @@
  */
 @import 'bootstrap';
 
-.page-header, h4 {
+body {
 	color: #5a5a5a;
+}
+
+.alert {
+	margin-top: 10px;
 }
 
 a:hover {

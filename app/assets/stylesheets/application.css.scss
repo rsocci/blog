@@ -17,10 +17,6 @@ body {
 	color: #5a5a5a;
 }
 
-.alert {
-	margin-top: 10px;
-}
-
 a:hover {
 	text-decoration: none;
 }
@@ -37,4 +33,8 @@ textarea {
 
 #time_stamp {
 	font-size: 12px;
+}
+
+.alert > p {
+	margin-bottom: 0px;
 }

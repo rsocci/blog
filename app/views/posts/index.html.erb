@@ -4,11 +4,15 @@
 
 <table class="table table-striped table-hover">
 	<% @posts.each do |post| %>
-		<tr class="row">
-			<td><%= link_to post.title, post %></td>
-			<td><%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure you want to delete this post?'} %></td>
-			<td><%= link_to 'Edit', edit_post_path(post.id), method: :get %></td>
-		</tr>
+		<div class="blog_post">
+			<div class="post_title">
+				<%= link_to post.title, post %>
+				<span class="post_config"><%= link_to 'Delete', post, method: :delete, data: {confirm: 'Are you sure you want to delete this post?'} %></span>
+				<span class="post_config"><%= link_to 'Edit', edit_post_path(post.id), method: :get %></span>
+			</div>
+			<p class="post_info"><%= (post.created_at).strftime("%B %e, %Y") + ' - ' + post.author %></p>
+			<hr>
+		</div>
 	<% end %>
 
 </table>

@@ -1,3 +1,28 @@
 // Place all the styles related to the Posts controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+.post_title {
+	display: block;
+	font-size: 18px;
+	font-weight: bold;
+}
+
+.post_info {
+	display: block;
+	font-size: 12px;
+	font-style: italic;
+}
+
+.post_config {
+	font-size: 12px;
+	display: none;
+	margin-left: 10px;
+	a {
+		color: #5a5a5a
+	}
+}
+
+.blog_post:hover .post_config {
+	display: inline;
+}

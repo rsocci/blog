@@ -12,7 +12,6 @@ feature 'new post is added' do
 
   scenario 'user wants to see a specific post' do
     click_link('My post')
-    expect(page).to have_no_selector('table')
     expect(page).to have_content('My post')
     expect(page).to have_content('The content')
   end

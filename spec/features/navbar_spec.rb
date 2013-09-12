@@ -1,21 +1,23 @@
 require 'spec_helper'
 
 feature 'navbar' do
+  subject { page } 
+
   before :each do
     visit root_path
   end
-  
-  scenario 'loads on page' do
-    expect(page).to have_selector('div.navbar-inner')
+
+  it 'loads on page' do
+    should have_selector('div.navbar-inner')
   end
-  
-  scenario 'Home link clicked' do
+
+  it 'Home link clicked' do
     click_link('Home')
-    expect(page).to have_content('New Post')
+    should have_content('New Post')
   end
-  
-  scenario 'New link clicked' do
+
+  it 'New link clicked' do
     click_link('New')
-    expect(page).to have_selector('div.new_post')
+    should have_selector('div.new_post')
   end
 end

@@ -5,7 +5,7 @@ class CommentsController < ApplicationController
     if @comment.save
       redirect_to post_path(params[:post_id]), notice: 'New comment has been added'
     else
-      @comments = Comment.all
+      @comments = Comment.all.order("id DESC")
       render 'posts/show'
     end
   end

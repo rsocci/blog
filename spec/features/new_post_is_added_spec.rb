@@ -17,7 +17,7 @@ feature 'new post is added' do
   end
 
   scenario 'user creates post with valid input' do
-    click_button('New Post')
+    click_link('New Post')
     fill_in 'Title', with: 'Hello World'
     fill_in 'Content', with: 'Just saying hello'
     fill_in 'Author', with: 'Romina Vargas'
@@ -26,7 +26,7 @@ feature 'new post is added' do
   end
 
   scenario 'use creates post with invalid input' do
-    click_button('New Post')
+    click_link('New Post')
     click_button('Submit')
     expect(page).to have_selector('.field_with_errors')
   end

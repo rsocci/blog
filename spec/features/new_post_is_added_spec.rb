@@ -25,6 +25,7 @@ feature 'new post is added' do
     fill_in 'Author', with: 'Romina Vargas'
     click_button('Submit')
     should have_content('New post has been added')
+    "Hello World".should < "My Post"
   end
 
   scenario 'use creates post with invalid input' do

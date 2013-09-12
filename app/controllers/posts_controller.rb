@@ -5,7 +5,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
-    @comments = @post.comments.where('post_id = ?', params[:id])
+    @comments = @post.comments.where('post_id = ?', params[:id]).order("id DESC")
     @comment = @post.comments.new
   end
 
